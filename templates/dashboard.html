@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Dashboard Overview</h2>
+
+<div class="stats-grid">
+    <div class="card">
+        <h3><i class="fas fa-check-circle"></i> Today's Updates</h3>
+        <p class="number">{{ today_total }}</p>
+    </div>
+
+    <div class="card" style="border-left-color: #10b981;">
+        <h3><i class="fas fa-history"></i> Yesterday's Updates</h3>
+        <p class="number">{{ yesterday_total }}</p>
+    </div>
+</div>
+
+{% endblock %}
+

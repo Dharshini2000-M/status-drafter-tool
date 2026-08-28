@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+    <div class="form-header">
+        <h2>Add Daily Status</h2>
+    </div>
+
+    <form action="{{ url_for('add_status') }}" method="POST" class="status-form">
+        
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" value="{{ today_date }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="employee_name">Employee Name:</label>
+            <input type="text" id="employee_name" name="employee_name" value="{{ employee_name }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="project">Project:</label>
+            <input type="text" id="project" name="project" placeholder="Enter project name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="work_done">Today's Work:</label>
+            <textarea id="work_done" name="work_done" rows="4" placeholder="Describe today's work" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="blockers">Blockers:</label>
+            <textarea id="blockers" name="blockers" rows="2" placeholder="Any blockers?"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Status:</label>
+            <div class="radio-group-container">
+                <label class="radio-option">
+                    <input type="radio" name="status" value="Completed" required>
+                    <span class="radio-label">Completed</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="status" value="Incomplete">
+                    <span class="radio-label">Incomplete</span>
+                </label>
+            </div>
+            <small style="color: #64748b; display: block; margin-top: 5px;">* Select either "Completed" or "Incomplete"</small>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">Submit Status</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
